@@ -1,0 +1,44 @@
+import { Meta, Primary, Controls, Story } from '@storybook/addon-docs/blocks';
+import * as ListStories from './List.stories';
+import List from './List';
+
+<Meta of={ListStories} />
+
+# Tarjeta de Interprete (`<List />`)
+
+## Descripcion general
+
+<Primary />
+
+ ---
+
+ ## Tabla de propiedades (API Docs)
+
+ <Controls />
+
+ ---
+
+ ## Ejemplo
+
+### Contenido Default
+
+<Story of={ListStories.Default} />
+
+
+ ### Estado destacado
+
+ <Story of={ListStories.Destacado} />
+
+ ### Contenido Sin Descripcion
+
+ <Story of={ListStories.SinDescripcion} />
+
+ ## Accesibilidad (A11y)
+
+ - The root article is keyboard-focusable (tabIndex="0") to allow keyboard users to reach it.
+ - An accessible label is applied via aria-label: it contains the actor name and, when esNota10 is true,
+   a short hint indicating the actor is in a featured movie.
+ - The image includes an alt attribute describing the subject ("Foto de nombre").
+ - A visually-hidden figcaption (sr-only) is included to expose any extra descriptive children content
+   to assistive technologies while keeping it visually hidden.
+
