@@ -1,6 +1,10 @@
 import { Link } from "react-router-dom";
 import peliculas from "../data/peliculas";
 import List from "../components/List";
+import {useState} from "react";
+import { useMemo } from "react";
+import SearchBar from "../components/SearchBar";
+
 
 /**
  * Interpretes
@@ -29,12 +33,32 @@ import List from "../components/List";
  * @returns {JSX.Element} Elemento JSX que representa el listado de intérpretes en una cuadrícula.
  */
 function Interpretes() {
+    const [searchTerm, setSearchTerm] = useState("");
+
+    const filteredInterpretes = useMemo(()=>{
+
+    const allInterpretes = peliculas.flatMap((pelicula)=>
+
+        pelicula.actores.map((actor,idInterprete)=>({
+            idPelicula: pelicula.id,
+            idInterprete: idInterprete,
+            esNota10: pelicula.nombre==10,
+        }))
+
+    );
+},[searchTerm]);
+
   return (
     <>
         <h2 className="text-xl font-semibold mb-4">Listado de intérpretes</h2>
         <p className="text-gray-700 mb-6">
             Estos son los intérpretes disponibles de nuestras películas:
         </p>
+         <SearchBar
+                searchTerm={searchTerm}
+                onSearchChange={setSearchTerm}
+                placeholder="Buscar películas por nombre..."
+            />
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 w-full mt-8">
             {peliculas.map((pelicula) =>
                 pelicula.actores.map((actor, idInterprete) => (
