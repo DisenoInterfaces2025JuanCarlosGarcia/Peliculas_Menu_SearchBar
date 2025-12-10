@@ -42,10 +42,13 @@ function Interpretes() {
         pelicula.actores.map((actor,idInterprete)=>({
             idPelicula: pelicula.id,
             idInterprete: idInterprete,
-            esNota10: pelicula.nombre==10,
+            esNota10: pelicula.nota==10,
         }))
 
     );
+    return allInterpretes.filter((int) =>
+            int.nombre.toLowerCase().includes(searchTerm.toLowerCase())
+        );
 },[searchTerm]);
 
   return (

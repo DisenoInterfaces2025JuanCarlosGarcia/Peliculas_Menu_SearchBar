@@ -7,6 +7,7 @@ import Home from "../pages/Home";
 import Peliculas from "../pages/Peliculas";
 import Interpretes from "../pages/Interpretes";
 import Admin from "../pages/Admin";
+import Formulario from "../pages/Formulario"
 
 /**
  * AppRouter
@@ -50,6 +51,7 @@ function AppRouter() {
         <Route path="/peliculas" element={<Peliculas />} />
         <Route path="/interpretes" element={<Interpretes />} />
         <Route path="/admin" element={<Admin />} />
+        <Route path="/formulario" element={<Formulario />} /> 
         <Route path="/detalle/pelicula/:idPeli" element={<Detail es="pelicula" />} />
         <Route path="/detalle/pelicula/:idPeli/interprete/:idInterprete" element={<Detail es="interprete" />} />
       </Route>

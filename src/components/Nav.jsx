@@ -111,6 +111,18 @@ function Nav() {
         >
           Admin
         </NavLink>
+        
+        <NavLink
+          to="/formulario"
+          onClick={closeMenu}
+          className={({ isActive }) =>
+            isActive
+              ? "font-bold underline block"
+              : "hover:underline block"
+          }
+        >
+          Formulario
+        </NavLink>
       </nav>
     </>
   );
